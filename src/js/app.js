@@ -57,29 +57,39 @@ export default class Main extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>New York Times</h1>
-                <p>Article Search</p>
-                <form onSubmit={this.handleSubmit}>
-                   <label>Search: </label>
-                   <input type="text" onChange={this.handleSearch} value={this.state.search} />
-                </form>
-                {
-                    this.state.contents.map((content, i) => {
-                        return (
-                            <div key={i}>
-                                <h3>{content.headline.main}</h3>
-                                {
-                                    (content.section_name) ? <h4>Section: {content.section_name}</h4> : ''
-                                }
-                                <pre>{content.pub_date}</pre>
-                                <p>{content.snippet}</p>
-                                <a href={content.web_url}>Read the article</a>
-                            </div>
-                        )
-                    })
-                }
-                <p>Made By Sheary</p>
+            <div className="container">
+                <div className="title">
+                    <h1>New York Times</h1>
+                    <p>Most Recent Articles Search</p>
+                </div>
+                <div className="form">
+                    <form onSubmit={this.handleSubmit}>
+                       <label>Search: </label>
+                       <input type="text" placeholder="keywords" onChange={this.handleSearch} value={this.state.search} />
+                    </form>
+                </div>
+                <div className="content">
+                    {
+                        this.state.contents.map((content, i) => {
+                            return (
+                                <div key={i} className="subcontent">
+                                    <h3>{content.headline.main}</h3>
+                                    <div className="subcontent-second">
+                                        {
+                                            (content.section_name) ? <h4>Section: {content.section_name}</h4> : ''
+                                        }
+                                        <pre>{content.pub_date}</pre>
+                                        <p>{content.snippet}</p>
+                                        <a href={content.web_url} target="blank">Read the article</a>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+                <div className="footer">
+                    <p>♕ Made with ❤ by ShearyTan '18 ♕</p>
+                </div>
             </div>
         )
     }

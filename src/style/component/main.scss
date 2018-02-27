@@ -1,8 +1,91 @@
+@import url("https://fonts.googleapis.com/css?family=IM+Fell+English|Lora");
+
+// Fonts
+$font_1: IM Fell English;
+$font_2: Lora;
+
+// Colors
+$white: rgb(237, 239, 239);
+$dark_blue: rgb(54, 64, 80);
+$red: rgb(102, 0, 51);
+
 body {
-    background: #f8fafa;
-    color: #364050;
-    font-family: Helvetica, Arial, sans-serif;
-    font-size: 16px;
-    margin: 0;
-    padding: 30px;
-  }
+    background: $white;
+    color: $dark_blue;
+    padding: 20px;
+    font-family: $font_2;
+
+    & .container {
+      text-align: left;;
+
+      & .title {
+        text-align: center;
+        padding: 20px;
+        font-family: $font_1;
+        background: darken($white, 15);
+        border: 3px solid darken($white, 10);
+        & h1 {
+          font-size: 55px;
+        }
+        & p {
+          font-size: 20px;
+        }
+      }
+
+      & .form {
+        padding-top: 20px;
+        & input {
+          height: 30px;
+          width: 150px;
+          font-size: 20px;
+          padding-left: 10px;
+        }
+      }
+
+      & .content {
+        & .subcontent {
+          border-bottom: 3px solid darken($white, 50);
+          padding: 20px;
+
+          & h3 {
+            font-size: 30px;
+            border-left: 10px solid darken($white, 50);
+            padding-left: 20px;
+          }
+          
+          & .subcontent-second {
+            margin-left: 29px;
+            & h4 {
+              font-size: 16px;
+            }
+
+            & p {
+              background: white;
+              padding: 50px;
+              text-align: center;
+              box-shadow: 0 0 5px black inset;
+            }
+  
+            & a {
+              padding: 6px;
+              text-decoration: none;
+              background: darken($white, 16);
+              color: white;
+              border-left: 5px solid darken($white, 50);
+  
+              &:hover {
+                border-left: 5px solid $red;
+              }
+            }
+          }
+        }
+      }
+
+      & .footer {
+        text-align: center;
+        font-size: 10px;
+        margin-top: 30px;
+      }
+    }
+ }
+
